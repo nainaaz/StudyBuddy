@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Find Partners</title>
+<link rel="stylesheet" href="/static/styles.css"></head>
+<body>
+  <div class="nav">
+    <div class="brand">StudyBuddy</div>
+    <div class="links">
+      <a href="/profile">Profile</a>
+      <a href="/matches">Matches</a>
+      <a href="/incoming">Incoming</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <h2>Suggested Study Partners</h2>
+    {% if others %}
+      {% for p in others %}
+        <div class="card">
+          <b>{{ p.name }}</b><br>
+          Style: {{ p.style }}<br>
+          Availability: {{ p.availability }}<br>
+          Courses: {% if p.courses %}{{ p.courses | map(attribute='code') | join(", ") }}{% else %}No courses{% endif %}<br><br>
+          <form method="post" action="/send_request/{{ p.name }}">
+            <button type="submit">Send Request</button>
+          </form>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No other users yet.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

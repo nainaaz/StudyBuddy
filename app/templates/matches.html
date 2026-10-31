@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Matches</title>
+<link rel="stylesheet" href="/static/styles.css"></head>
+<body>
+<div class="nav">
+  <div class="brand">StudyBuddy</div>
+  <div class="links">
+    <a href="/profile">Profile</a>
+    <a href="/partners">Find Partners</a>
+    <a href="/incoming">Incoming</a>
+    <a href="/logout">Logout</a>
+  </div>
+</div>
+
+<div class="form-card">
+  <h2>Your Matches</h2>
+  <p style="margin-top:-10px;">
+    Email your match and connect with them to schedule a time to meet!
+  </p>
+  {% if matches %}
+    {% for m in matches %}
+    <div class="card">
+      <b>{{ m.name }}</b><br>
+      Email: {{ m.email }}<br>
+      Style: {{ m.style }}<br>
+      Availability: {{ m.availability }}<br>
+      Courses: {% if m.courses %}{{ m.courses | map(attribute='code') | join(", ") }}{% else %}No courses{% endif %}<br><br>
+
+      <form method="post" action="/remove_match/{{ m.name }}" style="display:inline">
+        <button type="submit" style="background:red;">Remove Match</button>
+      </form>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p>You have no matches yet.</p>
+  {% endif %}
+</div>
+</body>
+</html>

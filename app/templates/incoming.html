@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Incoming Requests</title>
+<link rel="stylesheet" href="/static/styles.css"></head>
+<body>
+  <div class="nav">
+    <div class="brand">StudyBuddy</div>
+    <div class="links">
+      <a href="/profile">Profile</a>
+      <a href="/matches">Matches</a>
+      <a href="/partners">Find Partners</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <h2>Incoming Requests</h2>
+
+    {% if senders %}
+      {% for s in senders %}
+        <div class="card">
+          <b>{{ s.name }}</b><br>
+          Style: {{ s.style }}<br>
+          Courses: {% if s.courses %}{{ s.courses | map(attribute='code') | join(", ") }}{% else %}No courses{% endif %}<br><br>
+
+          <form method="post" action="/accept/{{ s.name }}" style="display:inline">
+            <button type="submit">Accept</button>
+          </form>
+
+          <form method="post" action="/decline/{{ s.name }}" style="display:inline">
+            <button type="submit">Decline</button>
+          </form>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No incoming requests as of right now.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

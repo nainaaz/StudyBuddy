@@ -1,0 +1,85 @@
+body {
+    font-family: system-ui, Arial, sans-serif;
+    background: linear-gradient(135deg, #f8fbff, #e6f0ff);
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background: #1e3a8a;
+    color: white;
+}
+
+.nav .brand {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.nav .links a {
+    color: white;
+    margin-left: 12px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Cards */
+.center-card {
+    max-width: 760px;
+    margin: 80px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(30, 58, 138, 0.12);
+}
+
+.form-card {
+    max-width: 520px;
+    margin: 40px auto;
+    background: white;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.card {
+    border-radius: 10px;
+    padding: 12px;
+    background: linear-gradient(180deg, #fff, #f2f8ff);
+    margin: 10px 0;
+    border: 1px solid #e6f0ff;
+}
+
+/* Form */
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 14px 0;
+    border-radius: 8px;
+    border: 1px solid #dbeafe;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* Headings */
+h2 {
+    margin-top: 0;
+    color: #0f172a;
+}

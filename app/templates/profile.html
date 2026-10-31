@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Profile</title>
+<link rel="stylesheet" href="/static/styles.css">
+<script src="https://unpkg.com/htmx.org@1.9.2"></script>
+</head>
+<body>
+<div class="nav">
+  <div class="brand">StudyBuddy</div>
+  <div class="links">
+    <a href="/partners">Find Partners</a>
+    <a href="/matches">Matches</a>
+    <a href="/incoming">Incoming</a>
+    <a href="/logout">Logout</a>
+  </div>
+</div>
+
+<div class="form-card">
+  <h2>Your Profile — {{ user.name }}</h2>
+
+  <form method="post">
+    <label>Graduation Year</label>
+    <select name="year">
+      <option selected>{{ user.year or "2025" }}</option>
+      <option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option>
+    </select>
+
+    <label>Study Style</label>
+    <select name="style">
+      <option selected>{{ user.style or "Visual" }}</option>
+      <option>Visual</option><option>Auditory</option><option>Reading/Writing</option><option>Practicing</option>
+    </select>
+
+    <label>Availability</label>
+    <select name="availability">
+      <option selected>{{ user.availability or "Morning" }}</option>
+      <option>Morning</option><option>Afternoon</option><option>Evening</option><option>Night</option>
+    </select>
+
+    <button type="submit">Save</button>
+  </form>
+
+  <hr>
+  <h3>Your courses</h3>
+
+
+  {% include "course_list.html" %}
+
+  <hr>
+  <h3>Add course</h3>
+  <form
+      method="post"
+      hx-post="/add_course"
+      hx-target="#courses-list"
+      hx-swap="outerHTML">
+    <input name="new_course" placeholder="Exact course code (e.g., COMPSCI 326)">
+    <button type="submit">Add course</button>
+  </form>
+
+</div>
+</body>
+</html>

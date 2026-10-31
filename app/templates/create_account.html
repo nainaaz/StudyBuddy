@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Create Account</title>
+<link rel="stylesheet" href="/static/styles.css"></head>
+<body>
+  <div class="nav">
+    <div class="brand">StudyBuddy</div>
+    <div class="links"><a href="/">Home</a><a href="/login">Login</a></div>
+  </div>
+
+  <div class="form-card">
+    <h2>Create Account</h2>
+    <form method="post">
+      <input name="name" placeholder="Name" required>
+      <input name="password" placeholder="Password" type="password" required>
+
+      <label>Email</label>
+      <input name="email" placeholder="Email" type="email" required>
+
+      <label>Graduation Year</label>
+      <select name="year">
+        <option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option>
+      </select>
+
+      <label>Study Style</label>
+      <select name="style">
+        <option>Visual</option><option>Auditory</option><option>Reading/Writing</option><option>Practicing</option>
+      </select>
+
+      <label>Availability</label>
+      <select name="availability">
+        <option>Morning</option><option>Afternoon</option><option>Evening</option><option>Night</option>
+      </select>
+
+      <label>First Course (exact code)</label>
+      <input name="course" placeholder="e.g., COMPSCI 187">
+
+      <button type="submit">Create Account</button>
+    </form>
+  </div>
+</body>
+</html>
